@@ -349,9 +349,8 @@ void load_tree_hdf5(int filenr, int *totNHalos) {
   space = H5Dget_space (dset);
   ndims = H5Sget_simple_extent_dims (space, dims, NULL);  
   Halo_Data = mymalloc("Halo_Data", sizeof(struct halo_data) * (*totNHalos));
-  printf("test 2\n");
   status = H5Dread (dset, halo_datatype, H5S_ALL, H5S_ALL, H5P_DEFAULT, Halo_Data);
-
+  printf("test 2\n");
 #ifdef LOADIDS
   status = H5Tinsert (halo_ids_datatype, HaloIDs_Data_HaloID, HOFFSET (struct halo_ids_data, HaloID),
   		      longtype);
