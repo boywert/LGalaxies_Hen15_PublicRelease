@@ -384,7 +384,6 @@ void load_tree_hdf5(int filenr, int *totNHalos) {
   space = H5Dget_space (dset);
   ndims = H5Sget_simple_extent_dims (space, dims, NULL);
   status = H5Dread (dset, H5T_STD_I32LE, H5S_ALL, H5S_ALL, H5P_DEFAULT, TreeNHalos);
-  printf("test 2\n");
   H5Dclose(dset);
   H5Fclose(file);
 
@@ -394,5 +393,5 @@ void load_tree_hdf5(int filenr, int *totNHalos) {
     TreeFirstHalo[0] = 0;
   for(i = 1; i < Ntrees; i++) 
     TreeFirstHalo[i] = TreeFirstHalo[i - 1] + TreeNHalos[i - 1];
-#undef HDFFIELDS
+  printf("test 2\n");
 }
