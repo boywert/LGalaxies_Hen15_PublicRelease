@@ -248,7 +248,7 @@ void SAM(int filenr)
   	if(treenr == NTrees_Switch_MR_MRII)
   		change_dark_matter_sim("MRII");
 #endif
-	printf("test 2\n");
+
   	load_tree(treenr);
 #ifdef MCMC
 #ifdef PRELOAD_TREES
@@ -268,6 +268,7 @@ void SAM(int filenr)
       //LastSnapShotNr is the highest output snapshot
       /* we process the snapshots now in temporal order 
        * (as a means to reduce peak memory usage) */
+      printf("test 2\n");
       for(snapnum = 0; snapnum <= LastSnapShotNr; snapnum++)
       {
 #ifdef MCMC
