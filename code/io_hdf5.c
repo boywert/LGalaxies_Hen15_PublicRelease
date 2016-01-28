@@ -306,11 +306,11 @@ void load_tree_hdf5(int filenr, int *totNHalos) {
     }
     else
       printf("%d Found tag '%s' in HDF5 input file '%s'.\nAll values will be set to generic.\n", i,  addr[i], buf);
-  }    
-
-  
+  }
+  printf("test 1\n");
   status = H5Tinsert (halo_datatype, Halo_Data_Descendant, HOFFSET (struct halo_data, Descendant),
   		      inttype);
+  printf("test 2\n");
   status = H5Tinsert (halo_datatype, Halo_Data_FirstProgenitor, HOFFSET (struct halo_data, FirstProgenitor),
   		      inttype);
   status = H5Tinsert (halo_datatype, Halo_Data_NextProgenitor, HOFFSET (struct halo_data, NextProgenitor),
