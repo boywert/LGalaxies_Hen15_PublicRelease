@@ -7,7 +7,7 @@ ifeq (HDF5_INPUT,$(findstring HDF5_INPUT,$(OPT)))
 OBJS  += ./code/io_hdf5.o
 endif
 OPT += -DOVERWRITE_OUTPUT    # overwrite output files if they exist (otherwise will quit without overwriting)
-OPT += -DNOUT=28             # This sets the number of galaxy output times. IGNORED IN GALAXYTREE MODE. VALUE CORRESPONDS TO NO. OF ROWS READ FROM desired_outputsnaps FILE
+OPT += -DNOUT=76             # This sets the number of galaxy output times. IGNORED IN GALAXYTREE MODE. VALUE CORRESPONDS TO NO. OF ROWS READ FROM desired_outputsnaps FILE
 #OPT += -DNOUT=1             # This sets the number of galaxy output times. IGNORED IN GALAXYTREE MODE. VALUE CORRESPONDS TO NO. OF ROWS READ FROM desired_outputsnaps FILE
 
 OPT += -DPARALLEL
