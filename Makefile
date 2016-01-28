@@ -24,7 +24,7 @@ include My_Makefile_options
 #include My_Makefile_options_MCMC
 
 # Choose your system type (needs to match an entry in Makefile_compilers)
-SYSTYPE = “LONESTAR4”
+SYSTYPE = "LONESTAR4"
 include Makefile_compilers
 
 
@@ -71,4 +71,3 @@ metadata_db:
 	awk -f ./AuxCode/awk/extract_struct_metals.awk ./code/allvars.i > ./AuxCode/awk/structs.dat
 	awk -f ./AuxCode/awk/extract_struct_elements.awk ./code/allvars.i >> ./AuxCode/awk/structs.dat
 	awk -f ./AuxCode/awk/extract_struct_GALAXY_OUTPUT.awk ./code/allvars.i >> ./AuxCode/awk/structs.dat
-	
