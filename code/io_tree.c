@@ -159,14 +159,14 @@ void load_tree_table(int filenr)
 #else
   load_tree_hdf5(filenr, &totNHalos);
 #endif
-
+  printf("test 2\n");
   //if MCMC is turned only Task 0 reads the file and then broadcasts
 #ifdef PARALLEL
 #ifdef MCMC
   } // end if ThisTask==0
 
   MPI_Barrier(MPI_COMM_WORLD);
-  printf("test 2\n");
+
   MPI_Bcast(&Ntrees,sizeof(int), MPI_BYTE, 0, MPI_COMM_WORLD);
   MPI_Bcast(&totNHalos,sizeof(int), MPI_BYTE, 0, MPI_COMM_WORLD);
   
