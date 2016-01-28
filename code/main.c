@@ -248,14 +248,14 @@ void SAM(int filenr)
   	if(treenr == NTrees_Switch_MR_MRII)
   		change_dark_matter_sim("MRII");
 #endif
-
+	printf("test 2\n");
   	load_tree(treenr);
 #ifdef MCMC
 #ifdef PRELOAD_TREES
       if(CurrentMCMCStep==1)
 #endif
 #endif
-	      printf("test 2\n");
+
         scale_cosmology(TreeNHalos[treenr]);
 
       gsl_rng_set(random_generator, filenr * 100000 + treenr);
