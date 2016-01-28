@@ -2,7 +2,7 @@
 # see also routine "check_options" in main.c...
 
 # Options that control I/O
-OPT += -DHDF5_INPUT	     # Use HDF5 merger tree
+#OPT += -DHDF5_INPUT	     # Use HDF5 merger tree
 ifeq (HDF5_INPUT,$(findstring HDF5_INPUT,$(OPT)))
 OBJS  += ./code/io_hdf5.o
 endif
