@@ -302,6 +302,9 @@ void load_tree_hdf5(int filenr, int *totNHalos) {
     if(!found_hdf5[i]) {
       printf("%d Error. I miss a value for tag '%s' in HDF5 input file '%s'.\nAll values will be set to generic.\n", i,  addr[i], buf);
     }
+    else
+      printf("%d Found tag '%s' in HDF5 input file '%s'.\nAll values will be set to generic.\n", i,  addr[i], buf);
+    }
   }    
 
   
