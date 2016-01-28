@@ -255,6 +255,7 @@ void SAM(int filenr)
       if(CurrentMCMCStep==1)
 #endif
 #endif
+	      printf("test 2\n");
         scale_cosmology(TreeNHalos[treenr]);
 
       gsl_rng_set(random_generator, filenr * 100000 + treenr);
@@ -268,7 +269,6 @@ void SAM(int filenr)
       //LastSnapShotNr is the highest output snapshot
       /* we process the snapshots now in temporal order 
        * (as a means to reduce peak memory usage) */
-      printf("test 2\n");
       for(snapnum = 0; snapnum <= LastSnapShotNr; snapnum++)
       {
 #ifdef MCMC
