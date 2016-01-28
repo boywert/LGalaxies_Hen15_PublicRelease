@@ -13,7 +13,7 @@ CoolFunctionsDir          /scratch/01937/cs390/L-Galaxies-SpecPhotTables/CoolFun
 SpecPhotDir               /scratch/01937/cs390/L-Galaxies-SpecPhotTables/  
 PhotPrefix                CB07 ;PLANCK_M05 ; WMAP7_BC03 ;WMAP7_CB07
 SpecPhotIMF               Chabrier ; Salpeter ; Kroupa 
-FileWithFilterNames       ./input/Filter_Names.txt
+FileWithFilterNames       ./input/Filter_uv.txt
 
 
 %-------------------------------------------------
