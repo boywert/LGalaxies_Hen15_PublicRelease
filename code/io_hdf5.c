@@ -310,7 +310,6 @@ void load_tree_hdf5(int filenr, int *totNHalos) {
   printf("test 1\n");
   status = H5Tinsert (halo_datatype, Halo_Data_Descendant, HOFFSET (struct halo_data, Descendant),
   		      inttype);
-  printf("test 2\n");
   status = H5Tinsert (halo_datatype, Halo_Data_FirstProgenitor, HOFFSET (struct halo_data, FirstProgenitor),
   		      inttype);
   status = H5Tinsert (halo_datatype, Halo_Data_NextProgenitor, HOFFSET (struct halo_data, NextProgenitor),
@@ -347,7 +346,7 @@ void load_tree_hdf5(int filenr, int *totNHalos) {
   		      inttype);
   status = H5Tinsert (halo_datatype, Halo_Data_SubHalfMass, HOFFSET (struct halo_data, SubHalfMass),
   		      inttype);
-  
+    printf("test 2\n");
   space = H5Dget_space (dset);
   ndims = H5Sget_simple_extent_dims (space, dims, NULL);
 
