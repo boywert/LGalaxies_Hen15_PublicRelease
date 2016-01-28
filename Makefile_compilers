@@ -33,7 +33,6 @@ ifeq (PARALLEL,$(findstring PARALLEL,$(OPT)))
 CC       =   mpicc
 else
 CC       =   gcc
-#CC       =   /opt/pgi/osx86/9.0-4/bin/pgcc
 endif
 GSL_INCL = 
 GSL_LIBS = 
