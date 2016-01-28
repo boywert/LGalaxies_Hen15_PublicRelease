@@ -346,10 +346,10 @@ void load_tree_hdf5(int filenr, int *totNHalos) {
   		      inttype);
   status = H5Tinsert (halo_datatype, Halo_Data_SubHalfMass, HOFFSET (struct halo_data, SubHalfMass),
   		      inttype);
-    printf("test 2\n");
+
   space = H5Dget_space (dset);
   ndims = H5Sget_simple_extent_dims (space, dims, NULL);
-
+  printf("test 2\n");
   Halo_Data = mymalloc("Halo_Data", sizeof(struct halo_data) * (*totNHalos));  
   status = H5Dread (dset, halo_datatype, H5S_ALL, H5S_ALL, H5P_DEFAULT, Halo_Data);
 
