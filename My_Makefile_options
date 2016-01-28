@@ -13,7 +13,7 @@ OPT += -DNOUT=28             # This sets the number of galaxy output times. IGNO
 OPT += -DPARALLEL
 #OPT += -DGALAXYTREE         # This will enable output of full galaxy merger trees, implicitly sets NOUT to maximum value
 #OPT += -DLOADIDS            # Load dbids files
-OPT += -DUPDATETYPETWO       # This updates the positions of type 2 galaxies when the galaxies are written to file (requires aux files to be read)\
+#OPT += -DUPDATETYPETWO       # This updates the positions of type 2 galaxies when the galaxies are written to file (requires aux files to be read)\
 
 # To run with different dark matter simulation
 #OPT += -DMRII      
@@ -70,9 +70,9 @@ OPT += -DOUTPUT_REST_MAGS    # output rest-frame magnitudes
 
 ### Options that control the Spectral synthesis
 
-OPT += -DM05 #use Maraston 2005 stellar populations need to change input.par
+#OPT += -DM05 #use Maraston 2005 stellar populations need to change input.par
 #OPT += -DBC03 #use Bruzual & Charlot 2003 stellar populations need to change input.par
-#OPT += -DCB07 #use Charlot & Bruzual 2007 stellar populations need to change input.par
+OPT += -DCB07 #use Charlot & Bruzual 2007 stellar populations need to change input.par
 
 #Define NMAG
 ifeq (FULL_SPECTRA,$(findstring FULL_SPECTRA,$(OPT)))
@@ -86,8 +86,9 @@ ifeq (CB07,$(findstring CB07,$(OPT)))
 OPT += -DNMAG=1221
 endif
 else #IF NOT DEFINED FULL_SPECTRA -> **** STANDARD RUN ****
-OPT += -DNMAG=40
+#OPT += -DNMAG=40
 #OPT += -DNMAG=20  #GALTREE
+OPT += -DNMAG=15   #UV 
 endif #FULL_SPECTRA
 
 endif ### COMPUTE_SPECPHOT_PROPERTIES
