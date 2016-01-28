@@ -256,6 +256,9 @@ FILE *FdGalTree;
 FILE *FdGalTreeSFH;
 FILE *FdGalDumps[NOUT];
 
-
+#ifdef HDF5_INPUT
+char HDF5_field_file[1024];
+void load_tree_hdf5(int filenr, int *totNHalos);
+#endif
 
 

@@ -88,6 +88,7 @@ void load_tree_table(int filenr)
 #endif
 #endif
 
+#ifndef HDF5_INPUT
 #ifdef LOADIDS
 #ifndef MRII
   sprintf(buf, "%s/treedata/tree_dbids_%03d.%d", SimulationDir, SnapShotInFileName, filenr);
@@ -153,6 +154,9 @@ void load_tree_table(int filenr)
   printf("\nTask %d done loading tree_dbids_%d\n", ThisTask, filenr);
 #endif
 #endif
+#endif
+#else
+  load_tree_hdf5(filenr, &totNHalos);
 #endif
 
   //if MCMC is turned only Task 0 reads the file and then broadcasts
@@ -240,12 +244,13 @@ void free_tree_table(void)
 #ifdef UPDATETYPETWO
   myfree(TreeAuxData);
 #endif
-
+#ifndef HDF5_INPUT
 #ifdef LOADIDS
   fclose(treedbids_file);
 #endif
 
   fclose(tree_file);
+#endif
 }
 
 

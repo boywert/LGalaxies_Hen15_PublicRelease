@@ -1098,6 +1098,9 @@ extern FILE *FdGalTree;
 extern FILE *FdGalTreeSFH;
 extern FILE *FdGalDumps[NOUT];
 
-
+#ifdef HDF5_INPUT
+extern char HDF5_field_file[1024];
+extern void load_tree_hdf5(int filenr, int *totNHalos);
+#endif
 
 

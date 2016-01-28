@@ -24,15 +24,15 @@ include My_Makefile_options
 #include My_Makefile_options_MCMC
 
 # Choose your system type (needs to match an entry in Makefile_compilers)
-SYSTYPE = "COSM"
+SYSTYPE = “LONSTAR4”
 include Makefile_compilers
 
 
 
 
-LIBS   =   -g $(LDFLAGS) -lm  $(GSL_LIBS)  $(RLIBS) -lgsl -lgslcblas 
+LIBS   =   -g $(LDFLAGS) -lm  $(GSL_LIBS) $(HDF5_LIBS) $(RLIBS) -lgsl -lgslcblas 
 
-CFLAGS =   -g $(OPTIONS) $(OPT) -DCOMPILETIMESETTINGS=\""$(OPT)"\" $(OPTIMIZE) $(GSL_INCL)
+CFLAGS =   -g $(OPTIONS) $(OPT) -DCOMPILETIMESETTINGS=\""$(OPT)"\" $(OPTIMIZE) $(GSL_INCL) $(HDF5_INCL)
 
 $(EXEC): $(OBJS) 
 	$(CC) $(OPTIMIZE) $(OBJS) $(LIBS)   -o  $(EXEC)  

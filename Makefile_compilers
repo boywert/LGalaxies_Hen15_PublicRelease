@@ -17,6 +17,7 @@
 # SYSTYPE = "Sussex"
 # SYSTYPE = "VIP"
 # SYSTYPE = "COSMA"
+# SYSTYPE = "LONESTAR4"
 
 # Default set
 CC       = gcc                  # sets the C-compiler
@@ -220,4 +221,20 @@ GSL_LIBS = -L/usr/local/lib -static
 #GSL_LIBS = -L/usr/lib -static
 endif
 
-
+ifeq ($(SYSTYPE),"LONESTAR4")
+ifeq (PARALLEL,$(findstring PARALLEL,$(OPT)))
+CC       =   mpicc
+else
+CC       =   icc
+endif
+CC_MD    = icc
+ifeq (DEBUG,$(findstring DEBUG,$(OPT)))
+OPTIMIZE =   -g -Wall
+else
+OPTIMIZE = -O3                  # optimization
+GSL_INCL =  -I$(TACC_GSL_INC)
+GSL_LIBS =  -L$(TACC_GSL_LIB)
+HDF5_INCL = -I$(TACC_HDF5_INC)
+HDF5_LIBS = -Wl,-rpath,$(TACC_HDF5_LIB) -L$(TACC_HDF5_LIB) -lhdf5 -lz
+endif
+endif
