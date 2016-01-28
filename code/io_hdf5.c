@@ -300,7 +300,7 @@ void load_tree_hdf5(int filenr, int *totNHalos) {
   errorFlag = 0;
   for(i = 5; i < nt; i++) {
     if(!found_hdf5[i]) {
-      printf("Error. I miss a value for tag '%s' in HDF5 input file '%s'.\nAll values will be set to generic.\n", addr[i], buf);
+      printf("%d Error. I miss a value for tag '%s' in HDF5 input file '%s'.\nAll values will be set to generic.\n", i,  addr[i], buf);
     }
   }    
 
@@ -388,6 +388,7 @@ void load_tree_hdf5(int filenr, int *totNHalos) {
   status = H5Dread (dset, H5T_STD_I32LE, H5S_ALL, H5S_ALL, H5P_DEFAULT, TreeNHalos);
   H5Dclose(dset);
   H5Fclose(file);
+  fclose(fd);
   for(i = 1; i < NOUT; i++)
     TreeNgals[i] = TreeNgals[i - 1] + Ntrees;
   if(Ntrees)
