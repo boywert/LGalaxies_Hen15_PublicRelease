@@ -76,7 +76,6 @@ void load_tree_hdf5(int filenr, int *totNHalos) {
   longtype = H5Tcopy (H5T_STD_I64LE);
   halo_datatype = H5Tcreate (H5T_COMPOUND, sizeof (struct halo_data));
   halo_ids_datatype = H5Tcreate (H5T_COMPOUND, sizeof (struct halo_ids_data));
-  
   /* define the parameter tags - see HDF5FieldFormatFile */
   strcpy(tag[nt], "MergerTree_group_loc");
   addr[nt] = MergerTree_group_loc;
@@ -348,9 +347,9 @@ void load_tree_hdf5(int filenr, int *totNHalos) {
   		      inttype);
 
   space = H5Dget_space (dset);
-  ndims = H5Sget_simple_extent_dims (space, dims, NULL);
+  ndims = H5Sget_simple_extent_dims (space, dims, NULL);  
+  Halo_Data = mymalloc("Halo_Data", sizeof(struct halo_data) * (*totNHalos));
   printf("test 2\n");
-  Halo_Data = mymalloc("Halo_Data", sizeof(struct halo_data) * (*totNHalos));  
   status = H5Dread (dset, halo_datatype, H5S_ALL, H5S_ALL, H5P_DEFAULT, Halo_Data);
 
 #ifdef LOADIDS
