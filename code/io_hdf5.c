@@ -393,5 +393,4 @@ void load_tree_hdf5(int filenr, int *totNHalos) {
     TreeFirstHalo[0] = 0;
   for(i = 1; i < Ntrees; i++) 
     TreeFirstHalo[i] = TreeFirstHalo[i - 1] + TreeNHalos[i - 1];
-  printf("test 2\n");
 }

@@ -155,6 +155,7 @@ void load_tree_table(int filenr)
 #endif
 #endif
 #endif
+
 #else
   load_tree_hdf5(filenr, &totNHalos);
 #endif
@@ -168,7 +169,7 @@ void load_tree_table(int filenr)
 
   MPI_Bcast(&Ntrees,sizeof(int), MPI_BYTE, 0, MPI_COMM_WORLD);
   MPI_Bcast(&totNHalos,sizeof(int), MPI_BYTE, 0, MPI_COMM_WORLD);
-
+  printf("test 2\n");
   if(ThisTask>0)
   	TreeNHalos = mymalloc("TreeNHalos", sizeof(int) * Ntrees);
 
