@@ -30,13 +30,15 @@ endif
 
 ifeq ($(SYSTYPE),"Sussex")
 ifeq (PARALLEL,$(findstring PARALLEL,$(OPT)))
-CC       =   gcc -pg
+CC       =   mpicc
 else
-CC       =   cc 
+CC       =   gcc
 #CC       =   /opt/pgi/osx86/9.0-4/bin/pgcc
 endif
-GSL_INCL = -I/usr/local/include
-GSL_LIBS = -L/usr/local/lib -static-intel
+GSL_INCL = 
+GSL_LIBS = 
+HDF5_INCL = -I/cm/shared/apps/hdf5/parallel/gcc/1.8.12/include
+HDF5_LIBS = -L/cm/shared/apps/hdf5/parallel/gcc/1.8.12/lib/ -lhdf5 
 endif
 
 ifeq ($(SYSTYPE),"COSM")
