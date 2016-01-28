@@ -166,10 +166,10 @@ void load_tree_table(int filenr)
   } // end if ThisTask==0
 
   MPI_Barrier(MPI_COMM_WORLD);
-
+  printf("test 2\n");
   MPI_Bcast(&Ntrees,sizeof(int), MPI_BYTE, 0, MPI_COMM_WORLD);
   MPI_Bcast(&totNHalos,sizeof(int), MPI_BYTE, 0, MPI_COMM_WORLD);
-  printf("test 2\n");
+  
   if(ThisTask>0)
   	TreeNHalos = mymalloc("TreeNHalos", sizeof(int) * Ntrees);
 
