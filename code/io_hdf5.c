@@ -65,9 +65,10 @@ void load_tree_hdf5(int filenr, int *totNHalos) {
   char HaloIDs_Data_MainLeafID[256];
   char HaloIDs_Data_Redshift[256];
   char HaloIDs_Data_PeanoKey[256];
-  
-  memset(found_input,0,HDFFIELDS);
-  memset(found_hdf5,0,HDFFIELDS);
+  for(i=0;i<HDFFIELDS;i++) {
+    found_input[i] = 0;
+    found_hdf5[i] = 0;
+  }
   inttype = H5Tcopy (H5T_STD_I32LE);
   floattype = H5Tcopy (H5T_IEEE_F32LE);
   doubletype = H5Tcopy (H5T_IEEE_F64LE);
