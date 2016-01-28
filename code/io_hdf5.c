@@ -284,6 +284,7 @@ void load_tree_hdf5(int filenr, int *totNHalos) {
       /* 	printf ("Member %i:%s  Type is  H5T_ARRAY\n", i,memb_name); */
       /* } */
       for(j=0;j<nt;j++) {
+	printf("check found %d =>%d\n",j,found_hdf5[j]);
 	if(strcmp(addr[j], memb_name) == 0) {
 	  found_hdf5[j] = 1;
 	  if(H5Tequal (memb_id, data_type[j]))
