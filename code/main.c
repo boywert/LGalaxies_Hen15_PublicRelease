@@ -238,16 +238,17 @@ void SAM(int filenr)
 
 //***************************************************************************************
 //***************************************************************************************
-  printf("test 2\n");
+
   //for(treenr = 0; treenr < NTrees_Switch_MR_MRII; treenr++)
   for(treenr = 0; treenr < Ntrees; treenr++)
   {
+    
   //printf("doing tree %d of %d\n", treenr, Ntrees);
 #ifdef MR_PLUS_MRII
   	if(treenr == NTrees_Switch_MR_MRII)
   		change_dark_matter_sim("MRII");
 #endif
-
+	printf("test 2\n");
   	load_tree(treenr);
 #ifdef MCMC
 #ifdef PRELOAD_TREES
