@@ -160,14 +160,13 @@ void load_tree_table(int filenr)
   load_tree_hdf5(filenr, &totNHalos);
 #endif
   for(i=0;i<totNHalos;i++)
-    printf("%d: desc = %d\n",i,Halo_Data[i].Descendant);
+    printf("%d: desc = %f\n",i,Halo_Data[i].Descendant);
   //if MCMC is turned only Task 0 reads the file and then broadcasts
 #ifdef PARALLEL
 #ifdef MCMC
   } // end if ThisTask==0
 
   MPI_Barrier(MPI_COMM_WORLD);
-
   MPI_Bcast(&Ntrees,sizeof(int), MPI_BYTE, 0, MPI_COMM_WORLD);
   MPI_Bcast(&totNHalos,sizeof(int), MPI_BYTE, 0, MPI_COMM_WORLD);
   
