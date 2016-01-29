@@ -292,6 +292,7 @@ void load_tree(int nr)
 #endif
 #else
 
+#ifndef HDF5_INPUT
   Halo = mymalloc("Halo", sizeof(struct halo_data) * TreeNHalos[nr]);
   myfseek(tree_file, sizeof(int) * (2 + Ntrees) + sizeof(struct halo_data) * TreeFirstHalo[nr], SEEK_SET);
   myfread(Halo, TreeNHalos[nr], sizeof(struct halo_data), tree_file);
@@ -300,7 +301,9 @@ void load_tree(int nr)
   myfseek(treedbids_file, sizeof(struct halo_ids_data) * TreeFirstHalo[nr], SEEK_SET);
   myfread(HaloIDs, TreeNHalos[nr], sizeof(struct halo_ids_data), treedbids_file);
 #endif
-
+#else
+  load_tree_partial_hdf5(nr);
+#endif
 #endif
 
   //Allocate HaloAux and Galaxy structures.

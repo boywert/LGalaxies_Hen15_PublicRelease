@@ -1104,6 +1104,7 @@ extern FILE *FdGalDumps[NOUT];
 #ifdef HDF5_INPUT
 extern char HDF5FieldFormatFile[1024];
 extern void load_tree_hdf5(int filenr, int *totNHalos);
+extern void load_tree_partial_hdf5(int nr);
 extern hid_t hdf5_halo_datatype;
 extern hid_t hdf5_halo_ids_datatype;
 extern hid_t hdf5_mergertree_fid;

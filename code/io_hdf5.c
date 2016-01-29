@@ -260,8 +260,8 @@ void load_tree_hdf5(int filenr, int *totNHalos) {
     terminate("parameterfile incorrect");
   
   sprintf(buf, "%s/treedata/trees_%d.hdf5", SimulationDir, filenr);
-  file = H5Fopen (buf, H5F_ACC_RDONLY, H5P_DEFAULT);
-  merger_t = H5Gopen (file, MergerTree_group_loc, H5P_DEFAULT);
+  hdf5_mergertree_fid = H5Fopen (buf, H5F_ACC_RDONLY, H5P_DEFAULT);
+  merger_t = H5Gopen (hdf5_mergertree_fid, MergerTree_group_loc, H5P_DEFAULT);
   attr = H5Aopen(merger_t, NHalos_loc, H5P_DEFAULT);
   status  = H5Aread(attr, H5T_NATIVE_INT, totNHalos);
   H5Aclose(attr);
@@ -313,7 +313,7 @@ void load_tree_hdf5(int filenr, int *totNHalos) {
       printf("Error. I miss a value for tag '%s' in HDF5 input file '%s'.\nAll values will be set to generic.\n", addr[i], buf);
     }
   }
-  dset = H5Dopen (file, NHalosInTree_dataset_loc, H5P_DEFAULT);
+  dset = H5Dopen (hdf5_mergertree_fid, NHalosInTree_dataset_loc, H5P_DEFAULT);
   space = H5Dget_space (dset);
   ndims = H5Sget_simple_extent_dims (space, dims, NULL);
   if(Ntrees != dims[0])
@@ -407,4 +407,29 @@ void load_tree_hdf5(int filenr, int *totNHalos) {
     TreeFirstHalo[0] = 0;
   for(i = 1; i < Ntrees; i++) 
     TreeFirstHalo[i] = TreeFirstHalo[i - 1] + TreeNHalos[i - 1];
+}
+
+void load_tree_partial_hdf5(int nr) {
+  hsize_t count[1];              /* size of subset in the file */
+  hsize_t offset[1];             /* subset offset in the file */
+  hsize_t stride[1] = {1};
+  hsize_t block[1] = {1};
+  hsize_t dims[1];
+  herr_t status;
+  hid_t dataspace_id, memspace_id;
+  
+  offset[0] = TreeFirstHalo[nr];
+  count[0] =  TreeNHalos[nr];
+  dims[0] = TreeNHalos[nr]
+  dataspace_id = H5Dget_space (hdf5_mergertree_id);
+  status = H5Sselect_hyperslab (dataspace_id, H5S_SELECT_SET, offset,
+				stride, count, block);
+  memspace_id = H5Screate_simple (1, dims, NULL);
+  Halo = mymalloc("Halo", sizeof(struct halo_data) * TreeNHalos[nr]);
+  status = H5Dread (hdf5_mergertree_id, hdf5_halo_datatype, memspace_id, dataspace_id, H5P_DEFAULT, Halo);
+
+#ifdef LOADIDS
+  HaloIDs = mymalloc("HaloIDs", sizeof(struct halo_ids_data) * TreeNHalos[nr]);
+  status = H5Dread (hdf5_mergertree_id, hdf5_halo_ids_datatype, memspace_id, dataspace_id, H5P_DEFAULT, HaloIDs);
+#endif
 }
