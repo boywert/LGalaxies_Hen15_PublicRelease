@@ -5,6 +5,9 @@
 
 #include <stdio.h>
 #include <gsl/gsl_rng.h>
+#ifdef HDF5_INPUT
+#include "hdf5.h"
+#endif
 
 #define MIN_ALLOC_NUMBER       1000
 #define ALLOC_INCREASE_FACTOR  1.1
@@ -1101,6 +1104,10 @@ extern FILE *FdGalDumps[NOUT];
 #ifdef HDF5_INPUT
 extern char HDF5_field_file[1024];
 extern void load_tree_hdf5(int filenr, int *totNHalos);
+extern hid_t hdf5_halo_datatype;
+extern hid_t hdf5_halo_ids_datatype;
+extern hid_t hdf5_mergertree_fid;
+extern hid_t hdf5_mergertree_id;
 #endif
 
 
