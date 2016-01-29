@@ -248,6 +248,9 @@ void free_tree_table(void)
   fclose(treedbids_file);
 #endif
   fclose(tree_file);
+#else
+  H5Dclose(hdf5_mergertree_id);
+  H5Fclose(hdf5_mergertree_fid);
 #endif
 }
 
