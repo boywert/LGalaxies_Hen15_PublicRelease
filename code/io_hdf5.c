@@ -260,7 +260,7 @@ void load_tree_hdf5(int filenr, int *totNHalos) {
     terminate("parameterfile incorrect");
   
   sprintf(buf, "%s/treedata/trees_%d.hdf5", SimulationDir, filenr);
-  hdf5_mergertree_fid = H5Fopen (buf, H5F_ACC_RDONLY, H5P_DEFAULT);
+  hdf5_mergertree_fid = H5Fopen(buf, H5F_ACC_RDONLY, H5P_DEFAULT);
   merger_t = H5Gopen (hdf5_mergertree_fid, MergerTree_group_loc, H5P_DEFAULT);
   attr = H5Aopen(merger_t, NHalos_loc, H5P_DEFAULT);
   status  = H5Aread(attr, H5T_NATIVE_INT, totNHalos);
@@ -271,7 +271,7 @@ void load_tree_hdf5(int filenr, int *totNHalos) {
   TreeNHalos = mymalloc("TreeNHalos", sizeof(int) * Ntrees);
   TreeFirstHalo = mymalloc("TreeFirstHalo", sizeof(int) * Ntrees);
   TreeNgals[0] = mymalloc("TreeNgals[n]", NOUT * sizeof(int) * Ntrees);
-  hdf5_mergertree_id = H5Dopen (file, MergerTree_dataset_loc, H5P_DEFAULT);
+  hdf5_mergertree_id = H5Dopen (hdf5_mergertree_fid, MergerTree_dataset_loc, H5P_DEFAULT);
   dtype = H5Dget_type(hdf5_mergertree_id);
   class = H5Tget_class (dtype);
   native_type=H5Tget_native_type(dtype, H5T_DIR_DEFAULT);
@@ -280,7 +280,7 @@ void load_tree_hdf5(int filenr, int *totNHalos) {
     nmembs = H5Tget_nmembers(native_type);
     for (i=0; i < nmembs ; i++) {
       memb_id = H5Tget_member_type(native_type, i);
-      memb_name = H5Tget_member_name( native_type, i);
+      memb_name = H5Tget_member_name(native_type, i);
       /* if (H5Tequal (memb_id, H5T_STD_I32LE)) */
       /* 	printf ("Member %i:%s  Type is H5T_STD_I32LE\n", i,memb_name); */
       /* else if (H5Tequal (memb_id, H5T_IEEE_F32LE)) */
