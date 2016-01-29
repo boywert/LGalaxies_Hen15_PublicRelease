@@ -4,7 +4,7 @@ HDF5FieldFormatFile	input/hdf5_field.txt
 %------------------------------------------
 
 FileNameGalaxies          SA
-FirstFile         1
+FirstFile         5
 LastFile          5
 
 FileWithOutputRedshifts   ./input/desired_output_redshifts.txt
