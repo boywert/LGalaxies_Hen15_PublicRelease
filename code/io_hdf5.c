@@ -285,7 +285,6 @@ void load_tree_hdf5(int filenr, int *totNHalos) {
       /* } */
       for(j=0;j<nt;j++) {
 	if(strcmp(addr[j], memb_name) == 0) {
-	  printf("check found %d =>%d\n",j,found_hdf5[j]);
 	  found_hdf5[j] = 1;
 	  if(H5Tequal (memb_id, data_type[j]))
 	    printf("%s : %s (FOUND)\n",tag[j], addr[j]);
@@ -303,8 +302,6 @@ void load_tree_hdf5(int filenr, int *totNHalos) {
     if(!found_hdf5[i]) {
       printf("%d Error. I miss a value for tag '%s' in HDF5 input file '%s'.\nAll values will be set to generic.\n", i,  addr[i], buf);
     }
-    else
-      printf("%d Found tag '%s' in HDF5 input file '%s'.\nAll values will be set to generic.\n", i,  addr[i], buf);
   }
   printf("test 1\n");
   status = H5Tinsert (halo_datatype, Halo_Data_Descendant, HOFFSET (struct halo_data, Descendant),
