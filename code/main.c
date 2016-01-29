@@ -1068,12 +1068,6 @@ terminate("\n\n> Error : Makefile option MCMC  requires LOADIDS \n");
   terminate("\n\n> Error : Makefile option HALOMODEL doesn't work yet with MRII\n");
 #endif
 #endif
-
-#ifdef HDF5_INPUT
-#ifndef PRELOAD_TREES
-  terminate("\n\n> Error : Makefile option HDF5_INPUT  requires PRELOAD_TREES \n");
-#endif
-#endif
   
 #ifdef PHOTTABLES_PRECOMPUTED
 #ifdef SPEC_PHOTABLES_ON_THE_FLY
