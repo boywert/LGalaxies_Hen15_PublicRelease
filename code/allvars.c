@@ -257,7 +257,7 @@ FILE *FdGalTreeSFH;
 FILE *FdGalDumps[NOUT];
 
 #ifdef HDF5_INPUT
-char HDF5_field_file[1024];
+char HDF5FieldFormatFile[1024];
 void load_tree_hdf5(int filenr, int *totNHalos);
 extern hid_t hdf5_halo_datatype;
 extern hid_t hdf5_halo_ids_datatype;

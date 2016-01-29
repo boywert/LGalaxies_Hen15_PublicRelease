@@ -224,7 +224,7 @@ void load_tree_hdf5(int filenr, int *totNHalos) {
   nt++;
   /* end parameter tags */
 
-  if((fd = fopen(HDF5_field_file, "r"))) {
+  if((fd = fopen(HDF5FieldFormatFile, "r"))) {
     while(fgets(buf, 2048, fd) != NULL) {
       if(sscanf(buf, "%s%s%s", buf1, buf2, buf3) < 2)
 	continue;

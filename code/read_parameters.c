@@ -64,8 +64,8 @@ void read_parameter_file(char *fname)
   id[nt++] = STRING;
 #endif
 #ifdef HDF5_INPUT
-  strcpy(tag[nt], "HDF5_field_file");
-  addr[nt] = HDF5_field_file;
+  strcpy(tag[nt], "HDF5FieldFormatFile");
+  addr[nt] = HDF5FieldFormatFile;
   id[nt++] = STRING;
 #endif
   strcpy(tag[nt], "SpecPhotDir");
