@@ -240,7 +240,7 @@ void load_tree_hdf5(int filenr, int *totNHalos) {
 	strcpy(addr[j], buf2);
       }
       else {
-	printf("Error in file %s: Tag '%s' not allowed or multiple defined.\n", HDF5_field_file, buf1);
+	printf("Error in file %s: Tag '%s' not allowed or multiple defined.\n", HDF5FieldFormatFile, buf1);
 	errorFlag = 1;
       }
     }
@@ -252,7 +252,7 @@ void load_tree_hdf5(int filenr, int *totNHalos) {
   }
   for(i = 0; i < nt; i++) {
     if(!found_input[i]) {
-      printf("Error. I miss a value for tag '%s' in parameter file '%s'.\n", tag[i], HDF5_field_file);
+      printf("Error. I miss a value for tag '%s' in parameter file '%s'.\n", tag[i], HDF5FieldFormatFile);
       errorFlag = 1;
     }
   }    

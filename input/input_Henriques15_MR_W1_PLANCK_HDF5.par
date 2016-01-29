@@ -1,4 +1,4 @@
-HDF5_field_file	input/hdf5_field.txt
+HDF5FieldFormatFile	input/hdf5_field.txt
 %------------------------------------------
 %----- SA model inputs       --------------
 %------------------------------------------
