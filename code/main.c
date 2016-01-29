@@ -249,7 +249,6 @@ void SAM(int filenr)
   		change_dark_matter_sim("MRII");
 #endif
   	load_tree(treenr);
-	printf("test 2\n");
 #ifdef MCMC
 #ifdef PRELOAD_TREES
       if(CurrentMCMCStep==1)
