@@ -420,7 +420,7 @@ void load_tree_partial_hdf5(int nr) {
   
   offset[0] = TreeFirstHalo[nr];
   count[0] =  TreeNHalos[nr];
-  dims[0] = TreeNHalos[nr]
+  dims[0] = TreeNHalos[nr];
   dataspace_id = H5Dget_space (hdf5_mergertree_id);
   status = H5Sselect_hyperslab (dataspace_id, H5S_SELECT_SET, offset,
 				stride, count, block);
