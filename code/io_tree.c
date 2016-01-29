@@ -249,7 +249,6 @@ void free_tree_table(void)
 #endif
   fclose(tree_file);
 #endif
-  printf("test 1\n");
 }
 
 

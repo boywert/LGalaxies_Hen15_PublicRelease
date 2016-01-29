@@ -176,12 +176,12 @@ int main(int argc, char **argv)
     	   system(buf);
          }
     }
-
+  printf("test 1\n");
 #ifndef MCMC
   myfree(TaskToProcess);
   myfree(FileToProcess);
 #endif
-
+  printf("test 2\n");
 #ifdef PARALLEL
   MPI_Finalize();
 #endif
