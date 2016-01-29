@@ -243,13 +243,13 @@ void free_tree_table(void)
 #ifdef UPDATETYPETWO
   myfree(TreeAuxData);
 #endif
-  printf("test 1\n");
 #ifndef HDF5_INPUT
 #ifdef LOADIDS
   fclose(treedbids_file);
 #endif
   fclose(tree_file);
 #endif
+  printf("test 1\n");
 }
 
 
