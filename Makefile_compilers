@@ -34,8 +34,8 @@ CC       =   mpicc
 else
 CC       =   gcc
 endif
-GSL_INCL = 
-GSL_LIBS = 
+GSL_INCL = /cm/shared/apps/gsl/gcc/1.15/include/
+GSL_LIBS = /cm/shared/apps/gsl/gcc/1.15/lib -lgsl
 HDF5_INCL = -I/cm/shared/apps/hdf5/parallel/gcc/1.8.12/include
 HDF5_LIBS = -L/cm/shared/apps/hdf5/parallel/gcc/1.8.12/lib/ -lhdf5 
 endif
