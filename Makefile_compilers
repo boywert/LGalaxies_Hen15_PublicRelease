@@ -34,10 +34,10 @@ CC       =   mpicc
 else
 CC       =   gcc
 endif
-GSL_INCL = /cm/shared/apps/gsl/gcc/1.15/include/
-GSL_LIBS = /cm/shared/apps/gsl/gcc/1.15/lib -lgsl
+GSL_INCL = -I/cm/shared/apps/gsl/gcc/1.15/include/
+GSL_LIBS = -L/cm/shared/apps/gsl/gcc/1.15/lib -lgsl
 HDF5_INCL = -I/cm/shared/apps/hdf5/parallel/gcc/1.8.12/include
-HDF5_LIBS = -L/cm/shared/apps/hdf5/parallel/gcc/1.8.12/lib/ -lhdf5 
+HDF5_LIBS = -L/cm/shared/apps/hdf5/parallel/gcc/1.8.12/lib/ -lhdf5
 endif
 
 ifeq ($(SYSTYPE),"COSM")
@@ -53,15 +53,15 @@ endif
 ifeq (DEBUG,$(findstring DEBUG,$(OPT)))
 OPTIMIZE =  -O3 -Wall -m64 -align
 else
-OPTIMIZE =  -O3 -m64 
+OPTIMIZE =  -O3 -m64
 endif
 GSL_INCL =  -I$(GSL_HOME)/include
-GSL_LIBS =  -L$(GSL_HOME)/lib -Xlinker -R -Xlinker $(GSL_HOME)/lib 
+GSL_LIBS =  -L$(GSL_HOME)/lib -Xlinker -R -Xlinker $(GSL_HOME)/lib
 FFTW_INCL=  -I$(FFTW_HOME)/include
 FFTW_LIBS=  -L$(FFTW_HOME)/lib
 MPICHLIB =
 HDF5INCL =
-HDF5LIB  =  
+HDF5LIB  =
 endif
 
 
@@ -76,7 +76,7 @@ ifeq ($(SYSTYPE),"ODIN")
 ifeq (PARALLEL,$(findstring PARALLEL,$(OPT)))
 CC       =   mpicc
 else
-CC       =  icc 
+CC       =  icc
 endif
 CXX      =   mpicxx
 OPTIMIZE =  -O3 -g -Wall -m64 # -wd981 -wd2259 -wd1572 -ipo4 -funroll-loops -finline -finline-functions -finline-limit=200 #-openmp
@@ -93,7 +93,7 @@ endif
 
 ifeq ($(SYSTYPE),"MPA-AMD")
 ifeq (PARALLEL,$(findstring PARALLEL,$(OPT)))
-CC       = /opt/openmpi-gnu-1.2.6/bin/mpicc  -m64  -L/opt/openmpi-gnu-1.2.6/lib  
+CC       = /opt/openmpi-gnu-1.2.6/bin/mpicc  -m64  -L/opt/openmpi-gnu-1.2.6/lib
 else
 CC       =   cc
 endif
@@ -174,15 +174,15 @@ CC       =   mpcc_r
 else
 CC       =   cc_r
 endif
-OPTIMIZE =   -g -q64 -qflttrap=zerodivide:invalid:enable  #  -O5 -qstrict -qipa 
+OPTIMIZE =   -g -q64 -qflttrap=zerodivide:invalid:enable  #  -O5 -qstrict -qipa
 GSL_INCL = -I/afs/ipp-garching.mpg.de/u/vrs/gsl_psi64/include  -I/afs/rzg/@sys/lib/include
-GSL_LIBS = -L/afs/ipp-garching.mpg.de/u/vrs/gsl_psi64/lib                
+GSL_LIBS = -L/afs/ipp-garching.mpg.de/u/vrs/gsl_psi64/lib
 endif
 
 ifeq ($(SYSTYPE),"Darwin")
 CC       =  mpicc -g -O2 -Wall
 OPTIMIZE =
-GSL_INCL = -I/sw/include -I/opt/local/include 
+GSL_INCL = -I/sw/include -I/opt/local/include
 GSL_LIBS = -L/sw/lib     -L/opt/local/lib
 endif
 
@@ -193,7 +193,7 @@ CC       =   mpicci
 else
 CC       =   icc
 endif
-OPTIMIZE =   -O3 
+OPTIMIZE =   -O3
 GSL_INCL = -I/afs/ipp-garching.mpg.de/u/vrs/gsl_linux/include
 GSL_LIBS = -L/afs/ipp-garching.mpg.de/u/vrs/gsl_linux/lib                -static
 endif
@@ -204,7 +204,7 @@ CC       =   mpiccg
 else
 CC       =   gcc
 endif
-OPTIMIZE =   -O3 
+OPTIMIZE =   -O3
 GSL_INCL = -I/afs/ipp-garching.mpg.de/u/vrs/gsl_linux_gcc3.2/include
 GSL_LIBS = -L/afs/ipp-garching.mpg.de/u/vrs/gsl_linux_gcc3.2/lib
 endif
