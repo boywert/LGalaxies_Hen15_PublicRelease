@@ -37,7 +37,7 @@ CFLAGS =   -g $(OPTIONS) $(OPT) -DCOMPILETIMESETTINGS=\""$(OPT)"\" $(OPTIMIZE) $
 all: $(EXEC)
 
 code/allvars.i: code/allvars.h
-	${CC_MD} ${OPT} ${CFLAGS} -E ./code/allvars.h -o ./code/allvars.i
+	$(CC) $(CFLAGS) $(LIBS)  -E ./code/allvars.h -o ./code/allvars.i
 
 
 $(EXEC): $(OBJS)
