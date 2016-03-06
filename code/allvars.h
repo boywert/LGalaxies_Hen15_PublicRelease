@@ -53,9 +53,14 @@
 #ifdef PHOENIX
 #define  MAXSNAPS  72
 #else
-
 #define  MAXSNAPS  64  //NORMAL MILLENNIUM
 #endif
+
+#ifdef CUSTOM_MAXSNAPS
+#undef MAXSNAPS
+#define MAXSNAPS CUSTOM_MAXSNAPS
+#endif
+
 #endif
 
 #define  MAXGALFAC 2.3 /*1.5/2.3 - maximum fraction of satellite without a halo (for memory allocation)*/
