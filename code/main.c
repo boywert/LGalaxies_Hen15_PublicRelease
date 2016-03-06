@@ -342,7 +342,7 @@ void construct_galaxies(int filenr, int treenr, int halonr)
 {
   static int halosdone = 0;
   int prog, fofhalo, ngal, cenngal, p;
-  printf("%d %d %d\n",filenr,treenr,halonr);
+  printf("%d %d %d snap = %d\n",filenr,treenr,halonr,Halo[halonr].SnapNum);
   HaloAux[halonr].DoneFlag = 1;
   halosdone++;
 
