@@ -98,7 +98,11 @@
 
 #ifdef STAR_FORMATION_HISTORY
 #define SFH_NMERGE 3  //  SFH_NMERGE=Nmax+1 (Nmax used in Shamshiri2014)
+#ifdef CUSTOM_SFH_NBIN
+#define SFH_NBIN CUSTOM_SFH_NBIN
+#else
 #define SFH_NBIN 20
+#endif
 //#define SFH_NMERGE 5
 //#define SFH_NBIN 35
 #endif //STAR_FORMATION_HISTORY
