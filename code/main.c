@@ -347,7 +347,7 @@ void construct_galaxies(int filenr, int treenr, int halonr)
   halosdone++;
 
   prog = Halo[halonr].FirstProgenitor;
-  printf("prog = %d Done= %d desc = %d\n",prog,HaloAux[prog].HaloFlag,Halo[prog].Descendant);
+  printf("prog = %d Done= %d desc = %d\n",prog,HaloAux[prog].DoneFlag,Halo[prog].Descendant);
   while(prog >= 0) //If halo has a progenitor
     {
       if(HaloAux[prog].DoneFlag == 0) //If progenitor hasn't been done yet
