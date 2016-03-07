@@ -358,7 +358,7 @@ void construct_galaxies(int filenr, int treenr, int halonr)
 
   //Now check for the progenitors of all the halos in the current FOF group
   fofhalo = Halo[halonr].FirstHaloInFOFgroup;	//Starting at the first halo in current FOF
-  printf("fofhalo = %d Done = %d\n",fofhalo,HaloAux[fofhalo].HaloFlag);
+  // printf("fofhalo = %d Done = %d\n",fofhalo,HaloAux[fofhalo].HaloFlag);
   if(HaloAux[fofhalo].HaloFlag == 0)	//If it hasn't been done
     {
       HaloAux[fofhalo].HaloFlag = 1;	//mark as to do
