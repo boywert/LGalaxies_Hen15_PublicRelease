@@ -127,8 +127,8 @@ void load_tree_table(int filenr)
   for(n = 1; n < NOUT; n++)
     TreeNgals[n] = TreeNgals[n - 1] + Ntrees;
 
-
-
+  printf("Nhalo = %d Ntree = %d tree[0] = %d\n",totNHalos,Ntrees,TreeNHalos[0]);
+  exit(0);
   myfread(TreeNHalos, Ntrees, sizeof(int), tree_file);
 
   if(Ntrees)
