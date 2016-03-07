@@ -347,13 +347,13 @@ void construct_galaxies(int filenr, int treenr, int halonr)
   halosdone++;
 
   prog = Halo[halonr].FirstProgenitor;
-  printf("prog = %d Done= %d\n",prog,HaloAux[prog].HaloFlag);
+  printf("prog = %d Done= %d desc = %d\n",prog,HaloAux[prog].HaloFlag,Halo[prog].Descendant);
   while(prog >= 0) //If halo has a progenitor
     {
       if(HaloAux[prog].DoneFlag == 0) //If progenitor hasn't been done yet
 		construct_galaxies(filenr, treenr, prog);
       prog = Halo[prog].NextProgenitor;	//Jump to next halo in progenitors FOF
-      printf("next prog = %d\n",prog);
+      printf("next prog = %d Done= %d\n",prog,HaloAux[prog].HaloFlag);
     }
 
   //Now check for the progenitors of all the halos in the current FOF group
