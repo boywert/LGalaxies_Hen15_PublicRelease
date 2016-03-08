@@ -352,11 +352,11 @@ void construct_galaxies(int filenr, int treenr, int halonr)
       if(HaloAux[prog].DoneFlag == 0) //If progenitor hasn't been done yet
 		construct_galaxies(filenr, treenr, prog);
       prog = Halo[prog].NextProgenitor;	//Jump to next halo in progenitors FOF
-      printf("next prog = %d Done= %d\n",prog,HaloAux[prog].HaloFlag);
     }
 
   //Now check for the progenitors of all the halos in the current FOF group
   fofhalo = Halo[halonr].FirstHaloInFOFgroup;	//Starting at the first halo in current FOF
+  printf("fof= %d Done= %d\n",fofhalo,HaloAux[fofhalo].HaloFlag);
   if(HaloAux[fofhalo].HaloFlag == 0)	//If it hasn't been done
     {
       HaloAux[fofhalo].HaloFlag = 1;	//mark as to do
