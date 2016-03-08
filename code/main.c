@@ -356,7 +356,7 @@ void construct_galaxies(int filenr, int treenr, int halonr)
 
   //Now check for the progenitors of all the halos in the current FOF group
   fofhalo = Halo[halonr].FirstHaloInFOFgroup;	//Starting at the first halo in current FOF
-  printf("fof= %d Done= %d\n",fofhalo,HaloAux[fofhalo].HaloFlag);
+  //printf("fof= %d Done= %d\n",fofhalo,HaloAux[fofhalo].HaloFlag);
   if(HaloAux[fofhalo].HaloFlag == 0)	//If it hasn't been done
     {
       HaloAux[fofhalo].HaloFlag = 1;	//mark as to do
@@ -381,29 +381,29 @@ void construct_galaxies(int filenr, int treenr, int halonr)
    * evolve them in time. */
 
 
-  fofhalo = Halo[halonr].FirstHaloInFOFgroup;
-  if(HaloAux[fofhalo].HaloFlag == 1)	//If it is marked as an halo to do
-    {
-      ngal = 0;
-      HaloAux[fofhalo].HaloFlag = 2;
+  /* fofhalo = Halo[halonr].FirstHaloInFOFgroup; */
+  /* if(HaloAux[fofhalo].HaloFlag == 1)	//If it is marked as an halo to do */
+  /*   { */
+  /*     ngal = 0; */
+  /*     HaloAux[fofhalo].HaloFlag = 2; */
+      
+  /*     cenngal = set_merger_center(fofhalo);	//Find type 0 for type 1 to merge into */
+      
+  /*     /\*For all the halos in the current FOF join all the progenitor galaxies together */
+  /*      * ngals will be the total number of galaxies in the current FOF*\/ */
+  /*     while(fofhalo >= 0) */
+  /*       { */
+  /*   	  ngal = join_galaxies_of_progenitors(fofhalo, ngal, &cenngal); */
+  /*   	  fofhalo = Halo[fofhalo].NextHaloInFOFgroup; */
+  /*       } */
 
-      cenngal = set_merger_center(fofhalo);	//Find type 0 for type 1 to merge into
 
-      /*For all the halos in the current FOF join all the progenitor galaxies together
-       * ngals will be the total number of galaxies in the current FOF*/
-      while(fofhalo >= 0)
-        {
-    	  ngal = join_galaxies_of_progenitors(fofhalo, ngal, &cenngal);
-    	  fofhalo = Halo[fofhalo].NextHaloInFOFgroup;
-        }
+  /*     /\*Evolve the Galaxies -> SAM! *\/ */
+  /*     evolve_galaxies(Halo[halonr].FirstHaloInFOFgroup, ngal, treenr, cenngal); */
 
-
-      /*Evolve the Galaxies -> SAM! */
-      evolve_galaxies(Halo[halonr].FirstHaloInFOFgroup, ngal, treenr, cenngal);
-
-      for (p =0;p<ngal;p++)
-	    mass_checks("Construct_galaxies #1",p);
-    }
+  /*     for (p =0;p<ngal;p++) */
+  /* 	    mass_checks("Construct_galaxies #1",p); */
+  /*   } */
 }
 
 
