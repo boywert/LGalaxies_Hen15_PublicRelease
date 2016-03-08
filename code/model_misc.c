@@ -167,7 +167,7 @@ double get_initial_disk_radius(int halonr, int p)
 void init_galaxy(int p, int halonr)
 {
   int j, outputbin;
-
+  printf("Init %d HaloNr = %d\n",p,halonr);
   /* make explicitly sure that the whole galaxy structure has defined 0 values */
   memset(&Gal[p], 0, sizeof(struct GALAXY));
 
@@ -344,6 +344,7 @@ void init_galaxy(int p, int halonr)
   Gal[p].EjectedMass_elements = elements_init();
   Gal[p].ICM_elements = elements_init();
 #endif
+  printf("Done init %d HaloNr = %d\n",p,halonr);
 }
 
 /**@brief Whenever star formation occurs, calculates the luminosity corresponding
