@@ -297,6 +297,7 @@ void load_tree(int nr)
   Halo = mymalloc("Halo", sizeof(struct halo_data) * TreeNHalos[nr]);
   myfseek(tree_file, sizeof(int) * (2 + Ntrees) + sizeof(struct halo_data) * TreeFirstHalo[nr], SEEK_SET);
   myfread(Halo, TreeNHalos[nr], sizeof(struct halo_data), tree_file);
+  printf("Halo 1849360 desc = %d\n",Halo[1849360].Descendant);
 #ifdef LOADIDS
   HaloIDs = mymalloc("HaloIDs", sizeof(struct halo_ids_data) * TreeNHalos[nr]);
   myfseek(treedbids_file, sizeof(struct halo_ids_data) * TreeFirstHalo[nr], SEEK_SET);
