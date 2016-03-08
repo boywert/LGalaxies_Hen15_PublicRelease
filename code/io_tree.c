@@ -127,10 +127,9 @@ void load_tree_table(int filenr)
   for(n = 1; n < NOUT; n++)
     TreeNgals[n] = TreeNgals[n - 1] + Ntrees;
 
+  myfread(TreeNHalos, Ntrees, sizeof(int), tree_file);
   printf("Nhalo = %d Ntree = %d tree[0] = %d\n",totNHalos,Ntrees,TreeNHalos[0]);
   exit(0);
-  myfread(TreeNHalos, Ntrees, sizeof(int), tree_file);
-
   if(Ntrees)
     TreeFirstHalo[0] = 0;
   /*Define a variable containing the number you have to jump to
