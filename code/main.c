@@ -342,7 +342,7 @@ void construct_galaxies(int filenr, int treenr, int halonr)
 {
   static int halosdone = 0;
   int prog, fofhalo, ngal, cenngal, p;
-  
+  printf("Begin constrict_galaxies fnr = %d tnr =%d hnr =%d\n",filenr,treenr,halonr);
   HaloAux[halonr].DoneFlag = 1;
   halosdone++;
 
@@ -350,7 +350,10 @@ void construct_galaxies(int filenr, int treenr, int halonr)
   while(prog >= 0) //If halo has a progenitor
     {
       if(HaloAux[prog].DoneFlag == 0) //If progenitor hasn't been done yet
-		construct_galaxies(filenr, treenr, prog);
+	{
+	  printf("call constrict_galaxies fnr = %d tnr =%d hnr =%d\n",filenr,treenr,prog);
+	  construct_galaxies(filenr, treenr, prog);
+	}
       prog = Halo[prog].NextProgenitor;	//Jump to next halo in progenitors FOF
     }
 
@@ -367,9 +370,11 @@ void construct_galaxies(int filenr, int treenr, int halonr)
     	  prog = Halo[fofhalo].FirstProgenitor;
     	  while(prog >= 0)	//build its progenitors
     	    {
-    		  if(HaloAux[prog].DoneFlag == 0)
-    			construct_galaxies(filenr, treenr, prog);
-    		  prog = Halo[prog].NextProgenitor;
+	      if(HaloAux[prog].DoneFlag == 0) {
+		printf("call constrict_galaxies fnr = %d tnr =%d hnr =%d\n",filenr,treenr,prog);
+		construct_galaxies(filenr, treenr, prog);
+	      }
+	      prog = Halo[prog].NextProgenitor;
     	    }
 
     	  fofhalo = Halo[fofhalo].NextHaloInFOFgroup;	//Jump to next halo in FOF
