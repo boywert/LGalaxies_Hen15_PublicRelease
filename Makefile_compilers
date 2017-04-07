@@ -40,6 +40,19 @@ HDF5_INCL = -I/cm/shared/apps/hdf5/parallel/gcc/1.8.12/include
 HDF5_LIBS = -L/cm/shared/apps/hdf5/parallel/gcc/1.8.12/lib/ -lhdf5
 endif
 
+ifeq ($(SYSTYPE),"Jureca")
+ifeq (PARALLEL,$(findstring PARALLEL,$(OPT)))
+CC       =   mpicc
+else
+CC       =   gcc
+endif
+GSL_INCL = 
+GSL_LIBS =  -lgsl
+HDF5_INCL = 
+HDF5_LIBS = -lhdf5
+endif
+
+
 ifeq ($(SYSTYPE),"COSM")
 #add this in your .cshrc
 #module load gsl/1.14
